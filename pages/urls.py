@@ -1,7 +1,6 @@
 from django.urls import path
 from .views import PageListView, PageDetailView, PageCreate, PageUpdate, PageDelete
 
-# app_name = 'pages'
 
 pages_patterns = ([
     path('', PageListView.as_view(), name='pages'),
