@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PageListView, PageDetailView, PageCreate, PageUpdate, PageDelete
+from .views import PageListView, PageDetailView, PageCreate, PageUpdate, PageDelete, ConfigCreate
 
 
 pages_patterns = ([
@@ -8,4 +8,6 @@ pages_patterns = ([
     path('create/', PageCreate.as_view(), name='create'),
     path('update/<int:pk>', PageUpdate.as_view(), name='update'),
     path('delete/<int:pk>', PageDelete.as_view(), name='delete'),
+    path('hermes/', PageListView.as_view(), name='hermes'),
+    path('hermes/create/', ConfigCreate.as_view(), name='create_config')
 ], 'pages')

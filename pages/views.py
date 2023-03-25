@@ -6,8 +6,8 @@ from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin # Utilizado en PageCreate
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
-from .models import Page
-from .forms import PageForm
+from .models import Page, NotificationConfig
+from .forms import PageForm, HermesForm
 
 # Create your views here.
 
@@ -33,6 +33,12 @@ class PageCreate(LoginRequiredMixin, CreateView):
     model = Page
     form_class = PageForm
     success_url = reverse_lazy('pages:pages')
+    login_url = reverse_lazy('admin:login')
+
+class ConfigCreate(LoginRequiredMixin, CreateView):
+    model = NotificationConfig
+    form_class = HermesForm
+    success_url = reverse_lazy('pages:hermes')
     login_url = reverse_lazy('admin:login')
 
 # Usando StaffRequiredMixin, decorando el método en esa clase

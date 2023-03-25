@@ -16,3 +16,15 @@ class Page(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class NotificationConfig(models.Model):
+    name = models.CharField(max_length=30, verbose_name='nombre')
+    day = models.CharField(verbose_name='Día de actividad', max_length=100, default='')
+
+    class Meta:
+        verbose_name = 'Configuración'
+        verbose_name_plural = 'Configuraciones'
+
+    def __str__(self):
+        return self.name
